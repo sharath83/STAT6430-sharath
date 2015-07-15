@@ -38,7 +38,7 @@ gr_top20 <- gr_order[(1:(0.2*nrow(gr_order))),]
 gr_bot20 <- gr_order[(0.8*nrow(gr)):nrow(gr)+1,]
  ## course average lower than final score for the Top 20%
 (nrow(gr[which(gr_top20$Course.Average..100.0. < gr_top20$Final.Exam..100.0.),]) / nrow(gr))*100
-## 1.76 % of total students or 11 students
+## 1.943% of total students or 11 students
 
 ## course average lower than final score for the Bottom 20%
 (nrow(gr[which(gr_bot20$Course.Average..100.0. < gr_bot20$Final.Exam..100.0.),]) / nrow(gr))*100
