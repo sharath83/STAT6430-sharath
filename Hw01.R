@@ -1,4 +1,4 @@
-setwd("~/Documents/MSDS 16/STAT - Jeff/day 02/")
+setwd("~/Documents/MSDS16//STAT_ Jeff/Day2/")
 # load the samplegrades.csv file
 gr <- read.csv("samplegrades.csv", header = T)
 str(gr) # to understand the data types of columns
@@ -6,10 +6,12 @@ str(gr) # to understand the data types of columns
 #a#Determine the percentage of students who had a course average of less than 60%, 
 #the minimum to pass the course
 nrow(gr[which(gr$Course.Average..100.0. < 60),])*100 /nrow(gr) #4.24 %
+#[1] 4.240283
 
 #b# How many students did not take the final exam?
 sum(is.na(gr$Final.Exam..100.0.)) # 0 students
 sum(gr$Final.Exam..100.0. == 0) # 5 students: If zero marks are considered as "Test not taken"
+
 
 #c# Which was higher, the average for quizzes, the midterm, or the final?
 x <- summary(gr[,c(5,4,2)]) # Average is highest for Midterm
@@ -62,5 +64,5 @@ for (i in 1:nrow(gr)) {
 rm(i)
 
 #3# Export grade.data (with course grades) to a CSV file mygradefile.csv.
-write.csv(gr, "mygradefile.csv")
+write.csv(gr, "mygradefile.csv") # File written to the current working directory
 
