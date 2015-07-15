@@ -13,12 +13,13 @@ sum(gr$Final.Exam..100.0. == 0) # 5 students: If zero marks are considered as "T
 
 #c# Which was higher, the average for quizzes, the midterm, or the final?
 x <- summary(gr[,c(5,4,2)]) # Average is highest for Midterm
-  ## alternate approach
-x <- matrix(c(mean(gr$Quiz..45.0.), mean(gr$Midterm..100.0.), mean(gr$Final.Exam..100.0.)))
+  ## alternate approach after normalizing the Quiz scores to 100 scale
+x <- matrix(c(mean(gr$Quiz..45.0.*100/45), mean(gr$Midterm..100.0.), mean(gr$Final.Exam..100.0.)))
 means <- data.frame(cbind(c("Quiz", "Mid", "Final"),x))
 names(means) <- c("test type", "Average")
 means$Average <- as.numeric(means$Average)
-means[which(means$Average == max(means$Average)),"test type"]
+means[which(means$Average == max(means$Average)),"test type"] 
+  #Average is highest in case of Quiz if the Quiz scores are scaled to 100
 
 #d# How many students had a midterm score of at least 80% 
 # and also a quiz score of no more than 70%?
